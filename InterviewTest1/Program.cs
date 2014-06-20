@@ -263,3 +263,59 @@ namespace InterviewTest1
         }
     }
 }
+
+/****************** The following is the SQL Code to create the 2 tables  ******************
+
+Use DB_Name_
+Go
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].Invoice_Backup') AND type in (N'U'))
+DROP TABLE [dbo].Invoice_Backup
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].Invoice_Backup(
+	[InvoiceNo] [varchar] (50) NULL,
+	[CompanyName] [varchar](50) NULL,
+	[BillingContact] [varchar](50) NULL,
+	[BillingStreet] [varchar](150) NULL,
+	[BillingCity] [varchar](150) NULL,
+	[BillingState] [varchar](10) NULL,
+	[BillingZip] [varchar] (10)NULL,
+	[PostedDate] [datetime] NULL,
+	[ShippingDate] [datetime] NULL,
+	[RequisitionDate] [datetime] NULL,
+	[LineItems] [varchar] (MAX) null,
+	[TaxRate] [decimal](18,2) NULL,
+	[SubTotal] [decimal](18,2) NULL,
+	[Shippint] [decimal](18,2) NULL,
+	[Total] [decimal] (18,2) NULL
+) ON [PRIMARY]
+GO
+
+
+IF  EXISTS (SELECT * FROM sys.objects WHERE object_id = OBJECT_ID(N'[dbo].Invoice_Item_Backup') AND type in (N'U'))
+DROP TABLE [dbo].Invoice_Item_Backup
+GO
+SET ANSI_NULLS ON
+GO
+SET QUOTED_IDENTIFIER ON
+GO
+SET ANSI_PADDING ON
+GO
+CREATE TABLE [dbo].Invoice_Item_Backup(
+	[LineTest] [varchar] (50) NULL,
+	[Taxable] [bit] NULL,
+	[Quantity] [Int] NULL,
+	[UnitPrice] [decimal](18,2) NULL,
+	[Discount] [tinyint] NULL,
+	[SubTotal] [decimal](18,2) NULL,
+	[Total] [decimal] (18,2) NULL
+) ON [PRIMARY]
+GO
+
+*/
